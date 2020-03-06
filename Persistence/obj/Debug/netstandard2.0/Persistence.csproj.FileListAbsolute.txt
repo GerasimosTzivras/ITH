@@ -1,0 +1,11 @@
+C:\repositories\ith\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\repositories\ith\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\repositories\ith\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\repositories\ith\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\repositories\ith\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\repositories\ith\Persistence\obj\Debug\netstandard2.0\Persistence.pdb

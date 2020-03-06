@@ -1,0 +1,13 @@
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Application.deps.json
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Application.dll
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Application.pdb
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Domain.dll
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Persistence.dll
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Domain.pdb
+C:\repositories\ith\Application\bin\Debug\netstandard2.0\Persistence.pdb
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.csprojAssemblyReference.cache
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.AssemblyInfoInputs.cache
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.AssemblyInfo.cs
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.csproj.CopyComplete
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.dll
+C:\repositories\ith\Application\obj\Debug\netstandard2.0\Application.pdb
