@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistence;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
 
 namespace API
 {
@@ -38,6 +39,9 @@ namespace API
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
                 });
             });
+            services.AddMediatR(typeof(Application.Tickets.List.Handler).Assembly);
+            services.AddMediatR(typeof(Application.Notes.List.Handler).Assembly);
+            services.AddMediatR(typeof(Application.Computers.List.Handler).Assembly);
             services.AddControllers();
         }
 
