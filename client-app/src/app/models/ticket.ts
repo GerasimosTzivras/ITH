@@ -6,8 +6,8 @@ export interface ITicket {
     customer: string;
     telephone: string;
     notes: string;
-    dateIn: Date;
-    dateOut: Date;
+    dateIn: string;
+    dateOut: string;
     place: string;
-    progress: number;
+    progress: string;
 }

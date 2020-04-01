@@ -4,9 +4,13 @@ import { ITicket } from '../../../app/models/ticket'
 
 interface IProps {
     tickets: ITicket[]
+    selectTicket: (id: string) => void
+    deleteTicket: (id: string) => void
+
 }
 
-export const TicketList: React.FC<IProps> = ({tickets}) => {
+export const TicketList: React.FC<IProps> = ({
+    tickets, selectTicket, deleteTicket}) => {
     return (
         <Segment>
             <Item.Group divided>
@@ -20,7 +24,9 @@ export const TicketList: React.FC<IProps> = ({tickets}) => {
                                 <div>{ticket.description}</div>
                             </Item.Description>
                             <Item.Extra>
-                                <Button floated='right' content='View' color='blue'/>
+                                <Button onClick={() => selectTicket(ticket.id)} floated='right' content='View' color='blue'/>
+                                <Button onClick={() => deleteTicket(ticket.id)} floated='right' content='Delete' color='red'/>
+                                <Button onClick={() => selectTicket(ticket.id)} floated='right' content='Preview' color='green'/>
                             </Item.Extra>
                         </Item.Content>
                     </Item>
