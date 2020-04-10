@@ -8,11 +8,14 @@ interface IProps {
     setEditMode: (editMode: boolean) => void
     createTicket: (ticket: ITicket) => void
     editTicket: (ticket: ITicket) => void
+    submitting: boolean
 }
 
 export const TicketForm:React.FC<IProps> = ({
     ticket: initialFormState, setEditMode,
-    createTicket, editTicket}) => {
+    createTicket, editTicket,
+    submitting
+}) => {
     
     const initializeForm = () => {
         if (initialFormState) {
@@ -111,7 +114,11 @@ export const TicketForm:React.FC<IProps> = ({
                     name='progress'
                     placeholder='Progress' 
                     value={ticket.progress}/>
-                <Button floated='right' positive type='submit' content='Submit' />
+                <Button 
+                    loading={submitting}
+                    floated='right' 
+                    positive type='submit' 
+                    content='Submit' />
                 <Button onClick={() => setEditMode(false)} floated='right' type='button' content='Cancel' />
             </Form>
         </Segment>

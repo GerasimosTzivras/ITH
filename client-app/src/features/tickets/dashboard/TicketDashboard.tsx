@@ -16,16 +16,23 @@ interface IProps {
     createTicket: (ticket: ITicket) => void
     editTicket: (ticket: ITicket) => void
     deleteTicket: (id: string) => void
+    submitting: boolean
 }
 
 export const TicketDashboard: React.FC<IProps> = ({
     tickets, selectTicket, selectedTicket, 
     editMode, setEditMode, setSelectedTicket,
-    createTicket, editTicket, deleteTicket}) => {
+    createTicket, editTicket, deleteTicket,
+    submitting
+}) => {
     return (
         <Grid>
             <Grid.Column width={10}>
-                <TicketList tickets={tickets} selectTicket={selectTicket} deleteTicket={deleteTicket}/>    
+                <TicketList 
+                tickets={tickets} 
+                selectTicket={selectTicket} 
+                deleteTicket={deleteTicket}
+                submitting={submitting}/>    
             </Grid.Column>
             <Grid.Column width={6}>
                 {selectedTicket && <TicketPreview ticket={selectedTicket} setSelectedTicket={setSelectedTicket} /> } 
@@ -41,7 +48,8 @@ export const TicketDashboard: React.FC<IProps> = ({
                         setEditMode={setEditMode} 
                         ticket={selectedTicket}
                         createTicket={createTicket}
-                        editTicket={editTicket}/>)}
+                        editTicket={editTicket}
+                        submitting={submitting}/>)}
             </Grid.Column>
         </Grid>
     )
