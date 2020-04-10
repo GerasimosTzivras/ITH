@@ -1,6 +1,7 @@
 import React from 'react'
 import { Segment, Item, Button } from 'semantic-ui-react'
 import { ITicket } from '../../../app/models/ticket'
+import { observer } from 'mobx-react-lite'
 
 interface IProps {
     tickets: ITicket[]
@@ -9,7 +10,7 @@ interface IProps {
     submitting: boolean
 }
 
-export const TicketList: React.FC<IProps> = ({
+const TicketList: React.FC<IProps> = ({
     tickets, selectTicket, deleteTicket,
     submitting
 }) => {
@@ -49,3 +50,5 @@ export const TicketList: React.FC<IProps> = ({
         </Segment>
     )
 }
+
+export default observer(TicketList)

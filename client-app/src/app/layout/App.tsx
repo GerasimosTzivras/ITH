@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {Container} from 'semantic-ui-react';
 import { ITicket } from '../models/ticket';
 import { NavBar } from '../../features/nav/NavBar';
-import { TicketDashboard } from '../../features/tickets/dashboard/TicketDashboard';
+import  TicketDashboard  from '../../features/tickets/dashboard/TicketDashboard';
 import agent from '../api/agent';
 import { LoadingComponent } from './LoadingComponent';
+import TicketStore from '../stores/ticketStore'
+import {observer} from 'mobx-react-lite'
 
 const App = () => {
+    const ticketStore = useContext(TicketStore)
     const [tickets, setTickets] = useState<ITicket[]>([])
     const [selectedTicket, setSelectedTicket] = useState<ITicket | null>(null)
     const [editMode, setEditMode] = useState(false)
@@ -49,26 +52,17 @@ const App = () => {
     }
 
     useEffect(() => {
-       agent.Tickets.list()
-          .then(response => {
-            let tickets: ITicket[] = []
-            response.forEach((ticket) => {
-              ticket.dateIn = ticket.dateIn.split('.')[0]
-              ticket.dateOut = ticket.dateOut.split('.')[0]
-              tickets.push(ticket)
-            })
-            setTickets(tickets)
-          }).then(() => setLoading(false))
-    }, []) //This ensures that useEffect runs one time only and doesnt continuously run
+       ticketStore.loadTickets()
+    }, [ticketStore]) //This ensures that useEffect runs one time only and doesnt continuously run
   
-    if (loading) return <LoadingComponent content='Loading...'/>
+    if (ticketStore.loadingInitial) return <LoadingComponent content='Loading...'/>
 
     return (
       <div>
        <NavBar openCreateForm={handleOpenCreateForm}/>
        <Container style={{marginTop:'4em'}}>
         <TicketDashboard 
-          tickets={tickets} 
+          tickets={ticketStore.tickets} 
           selectTicket={handleSelectedTicket}
           selectedTicket={selectedTicket} 
           setSelectedTicket={setSelectedTicket}
@@ -89,4 +83,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default observer(App);

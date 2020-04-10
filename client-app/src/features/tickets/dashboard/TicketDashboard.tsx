@@ -1,10 +1,11 @@
 import React from 'react'
 import { Grid, List } from 'semantic-ui-react'
 import { ITicket } from '../../../app/models/ticket'
-import { TicketList } from './TicketList'
+import  TicketList  from './TicketList'
 import { TicketPreview } from '../details/TIcketPreview'
 import { TicketForm } from '../form/TicketForm'
 import { TicketDetails } from '../details/TIcketDetails'
+import { observer } from 'mobx-react-lite'
 
 interface IProps {
     tickets: ITicket[]
@@ -19,7 +20,7 @@ interface IProps {
     submitting: boolean
 }
 
-export const TicketDashboard: React.FC<IProps> = ({
+const TicketDashboard: React.FC<IProps> = ({
     tickets, selectTicket, selectedTicket, 
     editMode, setEditMode, setSelectedTicket,
     createTicket, editTicket, deleteTicket,
@@ -54,3 +55,5 @@ export const TicketDashboard: React.FC<IProps> = ({
         </Grid>
     )
 }
+
+export default observer(TicketDashboard)
