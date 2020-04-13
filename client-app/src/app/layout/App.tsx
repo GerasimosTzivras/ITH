@@ -64,9 +64,7 @@ const App = () => {
         <TicketDashboard 
           tickets={ticketStore.tickets} 
           selectTicket={handleSelectedTicket}
-          selectedTicket={selectedTicket} 
           setSelectedTicket={setSelectedTicket}
-          editMode={editMode}
           setEditMode={setEditMode}
           createTicket={handleCreateTicket}
           editTicket={handleEditTicket}

@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Segment, Item, Button } from 'semantic-ui-react'
 import { ITicket } from '../../../app/models/ticket'
 import { observer } from 'mobx-react-lite'
+import TicketStore from '../../../app/stores/ticketStore'
 
 interface IProps {
-    tickets: ITicket[]
-    selectTicket: (id: string) => void
     deleteTicket: (id: string) => void
     submitting: boolean
 }
 
 const TicketList: React.FC<IProps> = ({
-    tickets, selectTicket, deleteTicket,
+    deleteTicket,
     submitting
 }) => {
+    const ticketStore = useContext(TicketStore)
+    const {tickets, selectTicket} = ticketStore
     return (
         <Segment>
             <Item.Group divided>

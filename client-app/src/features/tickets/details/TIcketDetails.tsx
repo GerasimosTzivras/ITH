@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Image, Icon, Button } from 'semantic-ui-react'
 import { ITicket } from '../../../app/models/ticket'
+import TicketStore from '../../../app/stores/ticketStore'
+import { observer } from 'mobx-react-lite'
 
 interface IProps {
-    ticket: ITicket
     setEditMode: (editMode: boolean) => void
     setSelectedTicket: (ticket: ITicket | null) => void
 }
 
-export const TicketDetails: React.FC<IProps> = ({
-    ticket, setEditMode, setSelectedTicket}) => {
+const TicketDetails: React.FC<IProps> = ({
+    setEditMode, setSelectedTicket}) => {
+        const ticketStore = useContext(TicketStore)
+        const {selectedTicket: ticket} = ticketStore
     return (
         <Card fluid>
-            <Image src={`/assets/categoryImages/${ticket.category}.jpg`} wrapped ui={false}/>
+            <Image src={`/assets/categoryImages/${ticket!.category}.jpg`} wrapped ui={false}/>
             <Card.Content>
-                <Card.Header>{ticket.title}</Card.Header>
-                <Card.Meta>{ticket.category}</Card.Meta>
-                <Card.Description>{ticket.description}</Card.Description>
+                <Card.Header>{ticket!.title}</Card.Header>
+                <Card.Meta>{ticket!.category}</Card.Meta>
+                <Card.Description>{ticket!.description}</Card.Description>
             </Card.Content>
             <Card.Content extra>
                 <Button.Group widths={2}>
@@ -27,3 +30,5 @@ export const TicketDetails: React.FC<IProps> = ({
         </Card>
     )
 }
+
+export default observer(TicketDetails)
